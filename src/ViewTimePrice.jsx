@@ -36,6 +36,7 @@ const ViewTimePrice = () => {
     axios
       .get("https://parking-admin-backend.onrender.com/logout")
       .then(() => {
+        Swal.fire({titleText: 'Logged out successfully!', icon: 'success', timer: 1000});
         navigate("/login");
       })
       .catch((err) => console.log(err));
