@@ -63,13 +63,16 @@ function Home() {
     axios
       .get("https://parking-admin-backend.onrender.com/logout")
       .then(() => {
-        if (res.data.Status === "Success") Swal.fire({titleText: 'Registered successfully!', icon: 'success', timer: 3000});
+        if (res.data.Status === "Success") {
+          Swal.fire({titleText: 'Logged out successfully!', icon: 'success', timer: 3000});
+          navigate('/login');
+        }
         else {
           Swal.fire({titleText: "Can't register location", icon: 'error', timer: 3000});
         }
       })
       .catch((err) => {
-        Swal.fire({titleText: "There's a problem when registering location", icon: 'error', timer: 3000});
+        Swal.fire({titleText: "There's a problem when logging out", icon: 'error', timer: 3000});
       });
   };
 
