@@ -14,7 +14,7 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/login", values)
+      .post("https://parking-admin-backend.onrender.com/login", values)
       .then((res) => {
         if (res.data.Status === "Success") navigate("/");
         else {

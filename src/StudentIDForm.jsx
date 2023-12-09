@@ -14,7 +14,7 @@ const StudentIDForm = ({location_id, scannedResult, onSubmit}) => {
     // Send a POST request using Axios to localhost:3000/add_time
     const currentDateTime = new Date(Date.now() + 7 * (60 * 60 * 1000)).toISOString().slice(0, 19).replace("T", " ");
     try {
-      const response = await axios.post('http://localhost:3000/add_time', {
+      const response = await axios.post('https://parking-admin-backend.onrender.com/add_time', {
         student_id: parseInt(student_id),
         location_id,
         time: currentDateTime

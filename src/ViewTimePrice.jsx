@@ -18,7 +18,7 @@ const ViewTimePrice = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000")
+      .get("https://parking-admin-backend.onrender.com")
       .then((res) => {
         if (res.data.Status === "Success") {
           setAuth(true);
@@ -34,7 +34,7 @@ const ViewTimePrice = () => {
 
   const handleLogout = () => {
     axios
-      .get("http://localhost:3000/logout")
+      .get("https://parking-admin-backend.onrender.com/logout")
       .then(() => {
         navigate("/login");
       })
@@ -43,9 +43,9 @@ const ViewTimePrice = () => {
 
   useEffect(() => {
     if (!location_id) return;
-    console.log(`http://localhost:3000/time_price/${location_id}`);
+    console.log(`https://parking-admin-backend.onrender.com/time_price/${location_id}`);
     axios
-      .get(`http://localhost:3000/time_price/${location_id}`)
+      .get(`https://parking-admin-backend.onrender.com/time_price/${location_id}`)
       .then((response) => {
         setTableData(response.data.sort((a, b) => a.start_time - b.start_time));
       })
@@ -87,7 +87,7 @@ const ViewTimePrice = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/update_time_price', {location_id: location_id, data: tableData});
+      const response = await axios.post('https://parking-admin-backend.onrender.com/update_time_price', {location_id: location_id, data: tableData});
       if (response.status === 200) {
         console.log('Data updated successfully!', response.data);
       } else {

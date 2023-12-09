@@ -45,7 +45,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000")
+      .get("https://parking-admin-backend.onrender.com")
       .then((res) => {
         if (res.data.Status === "Success") {
           setAuth(true);
@@ -61,7 +61,7 @@ function Home() {
 
   const handleLogout = () => {
     axios
-      .get("http://localhost:3000/logout")
+      .get("https://parking-admin-backend.onrender.com/logout")
       .then(() => {
         if (res.data.Status === "Success") Swal.fire({titleText: 'Registered successfully!', icon: 'success', timer: 3000});
         else {

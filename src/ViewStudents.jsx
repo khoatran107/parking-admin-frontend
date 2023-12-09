@@ -15,7 +15,7 @@ const ViewStudent = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000")
+      .get("https://parking-admin-backend.onrender.com")
       .then((res) => {
         if (res.data.Status === "Success") {
           setAuth(true);
@@ -31,7 +31,7 @@ const ViewStudent = () => {
 
   const handleLogout = () => {
     axios
-      .get("http://localhost:3000/logout")
+      .get("https://parking-admin-backend.onrender.com/logout")
       .then(() => {
         navigate("/login");
       })
@@ -40,9 +40,9 @@ const ViewStudent = () => {
 
   useEffect(() => {
     if (!location_id) return;
-    console.log(`http://localhost:3000/tickets/${location_id}`);
+    console.log(`https://parking-admin-backend.onrender.com/tickets/${location_id}`);
     axios
-      .post(`http://localhost:3000/tickets/${location_id}`)
+      .post(`https://parking-admin-backend.onrender.com/tickets/${location_id}`)
       .then((response) => {
         setTickets(response.data.sort((a, b) => (a.student_id - b.student_id)));
       })
