@@ -15,7 +15,7 @@ const ViewStudent = () => {
 
   useEffect(() => {
     axios
-      .get("https://parking-admin-backend.onrender.com")
+      .get("https://parkingmanage.online")
       .then((res) => {
         if (res.data.Status === "Success") {
           setAuth(true);
@@ -31,7 +31,7 @@ const ViewStudent = () => {
 
   const handleLogout = () => {
     axios
-      .get("https://parking-admin-backend.onrender.com/logout")
+      .get("https://parkingmanage.online/logout")
       .then(() => {
         Swal.fire({titleText: 'Logged out successfully!', icon: 'success', timer: 1000});
         navigate("/login");
@@ -41,9 +41,9 @@ const ViewStudent = () => {
 
   useEffect(() => {
     if (!location_id) return;
-    console.log(`https://parking-admin-backend.onrender.com/tickets/${location_id}`);
+    console.log(`https://parkingmanage.online/tickets/${location_id}`);
     axios
-      .post(`https://parking-admin-backend.onrender.com/tickets/${location_id}`)
+      .post(`https://parkingmanage.online/tickets/${location_id}`)
       .then((response) => {
         setTickets(response.data.sort((a, b) => (a.student_id - b.student_id)));
       })

@@ -14,7 +14,7 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("https://parking-admin-backend.onrender.com/login", values)
+      .post("https://parkingmanage.online/login", values)
       .then((res) => {
         if (res.data.Status === "Success") navigate("/");
         else {

@@ -45,7 +45,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("https://parking-admin-backend.onrender.com")
+      .get("https://parkingmanage.online")
       .then((res) => {
         if (res.data.Status === "Success") {
           setAuth(true);
@@ -61,7 +61,7 @@ function Home() {
 
   const handleLogout = () => {
     axios
-      .get("https://parking-admin-backend.onrender.com/logout")
+      .get("https://parkingmanage.online/logout")
       .then(() => {
         Swal.fire({titleText: 'Logged out successfully!', icon: 'success', timer: 1000});
         navigate("/login");

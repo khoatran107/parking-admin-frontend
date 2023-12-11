@@ -18,7 +18,7 @@ const ViewTimePrice = () => {
 
   useEffect(() => {
     axios
-      .get("https://parking-admin-backend.onrender.com")
+      .get("https://parkingmanage.online")
       .then((res) => {
         if (res.data.Status === "Success") {
           setAuth(true);
@@ -34,7 +34,7 @@ const ViewTimePrice = () => {
 
   const handleLogout = () => {
     axios
-      .get("https://parking-admin-backend.onrender.com/logout")
+      .get("https://parkingmanage.online/logout")
       .then(() => {
         Swal.fire({titleText: 'Logged out successfully!', icon: 'success', timer: 1000});
         navigate("/login");
@@ -44,9 +44,9 @@ const ViewTimePrice = () => {
 
   useEffect(() => {
     if (!location_id) return;
-    console.log(`https://parking-admin-backend.onrender.com/time_price/${location_id}`);
+    console.log(`https://parkingmanage.online/time_price/${location_id}`);
     axios
-      .get(`https://parking-admin-backend.onrender.com/time_price/${location_id}`)
+      .get(`https://parkingmanage.online/time_price/${location_id}`)
       .then((response) => {
         setTableData(response.data.sort((a, b) => a.start_time - b.start_time));
       })
@@ -88,7 +88,7 @@ const ViewTimePrice = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://parking-admin-backend.onrender.com/update_time_price', {location_id: location_id, data: tableData});
+      const response = await axios.post('https://parkingmanage.online/update_time_price', {location_id: location_id, data: tableData});
       if (response.status === 200) {
         console.log('Data updated successfully!', response.data);
       } else {

@@ -11,7 +11,7 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("https://parking-admin-backend.onrender.com/register", values)
+      .post("https://parkingmanage.online/register", values)
       .then((res) => {
         if (res.status === 200 && !res.data.error) {
           Swal.fire({
